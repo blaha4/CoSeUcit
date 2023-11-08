@@ -56,6 +56,18 @@ namespace _8._11
             capacity -= fish.Size;
             return true;
         }
+
+        public HashSet<string> FishNames() 
+        {
+            HashSet<string> names = new HashSet<string>();
+            foreach(var fish in fishList) 
+            {
+                string name = fish.Name;
+                name = name.ToUpper();
+                names.Add(name);
+            }
+            return names;
+        }
     }
 }
 

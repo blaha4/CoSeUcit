@@ -130,7 +130,19 @@ namespace _8._11
     {
         FreshWater, Brackish, SaltWater
     }
-    public class Fish
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _8._11
+{
+    public enum WaterType
+    {
+        FreshWater, Brackish, SaltWater
+    }
+    public class Fish : IComparable<Fish>
     {
         private int size;
         private string name;
@@ -152,5 +164,14 @@ namespace _8._11
         public Range<double> Ph { get => ph; set => ph = value; }
         public Range<int> Temperature { get => temperature; set => temperature = value; }
         public WaterType Water { get => water; set => water = value; }
+
+        public int CompareTo(Fish? other)
+        {
+            if (other == null) return -1;
+            return size - other.size;
+
+
+        }
     }
 }
+
